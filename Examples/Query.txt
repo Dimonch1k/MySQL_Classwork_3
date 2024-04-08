@@ -1,0 +1,68 @@
+USE newdb;
+
+-- prodcts and tags
+
+DROP TABLE IF EXISTS wine_tags;
+DROP TABLE IF EXISTS wine_products;
+DROP TABLE IF EXISTS tags;
+
+DROP TABLE IF EXISTS wine_profile;
+
+CREATE TABLE IF NOT EXISTS tags (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS wine_profile (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    city VARCHAR(255) NOT NULL,
+	country VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS wine_products (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+	age int CHECK (age >= 56)
+    
+    -- wine_profile_id int UNIQUE,
+    -- FOREIGN KEY (wine_profile_id) REFERENCES wine_profile(id) ON DELETE CASCADE
+    
+    -- tag_id int,
+	-- FOREIGN KEY (tag_id) REFERENCES tags(id)
+);
+
+CREATE TABLE IF NOT EXISTS wine_tags (
+    wine_id INT,
+    tag_id INT,
+    FOREIGN KEY (wine_id) REFERENCES wine_products (id),
+    FOREIGN KEY (tag_id) REFERENCES tags (id),
+    UNIQUE (wine_id, tag_id)
+);
+
+
+
+INSERT INTO wine_profile(city, country) VALUES 
+("First city", "First country"),
+("Second city", "Second country"),
+("Third city", "Third country");
+
+
+
+INSERT INTO wine_products(name, description, age) VALUES 
+("One", "Desc", 57),
+("Two", "Desc", 58),
+("Three", "Desc", 59);
+
+INSERT INTO tags(name) VALUES 
+("White"),
+("Red");
+
+
+INSERT INTO wine_tags(wine_id, tag_id) VALUES 
+(1, 2),
+(2, 1),
+(1, 1);
+
+
+

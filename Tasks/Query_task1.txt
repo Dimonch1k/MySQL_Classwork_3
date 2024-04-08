@@ -1,0 +1,43 @@
+USE newdb;
+
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS profiles;
+
+
+
+CREATE TABLE IF NOT EXISTS users (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS profiles (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    -- user_id INT PRIMARY KEY AUTO_INCREMENT,
+    birth_day DATE,
+    phone_number INT
+);
+
+CREATE TABLE IF NOT EXISTS users_profiles (
+	user_id INT,
+    profile_id INT,
+	
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (profile_id) REFERENCES profiles(id),
+    UNIQUE(user_id, profile_id)
+);
+
+
+INSERT INTO users(name, email) VALUES 
+("adriy", "andriy@gmail.com"),
+("jura", "jura@gmail.com");
+
+INSERT INTO profiles(name, email) VALUES 
+("adriy", "andriy@gmail.com"),
+("jura", "jura@gmail.com");
+
+INSERT INTO users_profiles(user_id, profile_id) VALUES 
+(1, 2),
+(2, 1),
+(1, 1);

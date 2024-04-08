@@ -1,0 +1,16 @@
+-- SELECT *
+-- FROM wine_products
+-- JOIN wine_profile
+-- ON wp.wine_profile_id = wine_profile.id;
+
+-- SELECT wp.name, wp.description, wp.age, tags.name
+-- FROM wine_products as wp
+-- JOIN tags
+-- ON wp.tag_id = tags.id;
+
+-- SELECT *
+-- FROM wine_tags
+-- JOIN wine_products
+-- ON wine_tags.wine_id = wine_products.id
+-- JOIN tags
+-- ON wine_tags.tag_id = tags.id;
