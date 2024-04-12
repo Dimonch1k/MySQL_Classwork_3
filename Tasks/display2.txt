@@ -1,0 +1,30 @@
+-- Condition 1
+
+-- SELECT a.title, COUNT(c.id) as amount
+-- FROM comments as c
+-- JOIN articles as a
+-- ON c.article_id = a.id
+-- GROUP BY a.title;
+
+
+
+-- Condition 2
+
+-- SELECT a.title, c.article_id
+-- FROM comments as c
+-- JOIN articles as a
+-- ON c.article_id = a.id
+-- WHERE a.id = 2;
+
+
+
+-- Condition 3
+
+-- DELETE FROM comments 
+-- WHERE id = 2;
+
+-- SELECT c.id AS comment_id, a.title, c.author, a.description
+-- FROM comments as c
+-- JOIN articles as a
+-- ON c.article_id = a.id;
+

@@ -1,0 +1,40 @@
+use newdb;
+
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS articles;
+
+
+CREATE TABLE IF NOT EXISTS articles (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    
+    title VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    article_id INT,
+    
+    comment_text VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    
+    FOREIGN KEY (article_id)
+        REFERENCES articles (id)
+        ON DELETE CASCADE
+);
+
+INSERT INTO articles(title, description) VALUES 
+("Harry Potter", "Harry Potter is a young wizard"),
+("The lord of the Rings", "The saga of a group of sometimes reluctant heroes who set forth to save their world from consummate evil"),
+("Treasure Island", "Story about misterious treasure island");
+
+INSERT INTO comments(article_id, comment_text, author) VALUES
+(1, "Perfect article", "J.K.Rowling"),
+(1, "Perfect article", "J.K.Rowling"),
+(2, "Good article", "J.R.R.Tolkien"),
+(2, "Good article", "J.R.R.Tolkien"),
+(3, "Bad article", "R.L.Stevenson"),
+(3, "Bad article", "R.L.Stevenson");
+
+
+

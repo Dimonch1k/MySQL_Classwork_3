@@ -1,0 +1,31 @@
+-- Condition 1
+ 
+-- SELECT user_id, name, email, birth_date, phone_number
+-- FROM profiles as p
+-- JOIN users as us
+-- ON p.user_id = us.id;
+
+
+
+-- Condition 2
+ 
+-- UPDATE profiles
+-- SET phone_number = "41980"
+-- WHERE id = 1;
+
+-- SELECT user_id, name, email, birth_date, phone_number
+-- FROM profiles AS p
+-- JOIN users as us
+-- ON p.user_id = us.id;
+
+
+
+-- Condition 3
+ 
+-- DELETE FROM profiles
+-- WHERE user_id = 2;
+
+-- SELECT user_id, name, email, birth_date, phone_number
+-- FROM profiles AS p
+-- JOIN users as us
+-- ON p.user_id = us.id;

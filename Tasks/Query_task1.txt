@@ -1,10 +1,7 @@
 USE newdb;
 
-
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS profiles;
-
-
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF NOT EXISTS users (
 	id INT PRIMARY KEY AUTO_INCREMENT,
@@ -14,30 +11,36 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS profiles (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    -- user_id INT PRIMARY KEY AUTO_INCREMENT,
-    birth_day DATE,
-    phone_number INT
+    birth_date DATE,
+    phone_number INT,
+    
+	user_id int UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
-CREATE TABLE IF NOT EXISTS users_profiles (
-	user_id INT,
-    profile_id INT,
-	
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (profile_id) REFERENCES profiles(id),
-    UNIQUE(user_id, profile_id)
-);
-
 
 INSERT INTO users(name, email) VALUES 
 ("adriy", "andriy@gmail.com"),
-("jura", "jura@gmail.com");
+("jura", "jura@gmail.com"),
+("maks", "maks@gmail.com");
 
-INSERT INTO profiles(name, email) VALUES 
-("adriy", "andriy@gmail.com"),
-("jura", "jura@gmail.com");
+INSERT INTO profiles(user_id, birth_date, phone_number) VALUES 
+(1, "2008-05-31", "12345"),
+(2, "2010-01-02", "54321"),
+(3, "2000-12-24", "99999");
 
-INSERT INTO users_profiles(user_id, profile_id) VALUES 
-(1, 2),
-(2, 1),
-(1, 1);
+
+
+
+-- CREATE TABLE IF NOT EXISTS users_profiles (
+-- 	user_id INT,
+--     profile_id INT,
+-- 	
+--     FOREIGN KEY (user_id) REFERENCES users(id),
+--     FOREIGN KEY (profile_id) REFERENCES profiles(id),
+--     UNIQUE(user_id, profile_id)
+-- );
+
+-- INSERT INTO users_profiles(user_id, profile_id) VALUES 
+-- (1, 4),
+-- (2, 5),
+-- (3, 6);
