@@ -1,0 +1,38 @@
+-- Condition 1
+
+-- SELECT `user_id`, `film_id`, `u`.name AS user_name, `f`.name AS film_name, `f`.genre AS genre
+-- FROM `users_films` AS `uf`
+-- JOIN `users` AS `u`
+-- ON `uf`.user_id = `u`.id
+-- JOIN `films` AS `f`
+-- ON `uf`.film_id = `f`.id
+-- WHERE `f`.name = "The Shawshank Redemption";
+
+
+-- Condition 2
+
+-- SELECT `user_id`, `film_id`, `u`.name AS user_name, `f`.name AS film_name
+-- FROM `users_films` AS `uf`
+-- JOIN `users` AS `u`
+-- ON `uf`.user_id = `u`.id
+-- JOIN `films` AS `f`
+-- ON `uf`.film_id = `f`.id
+-- WHERE `uf`.user_id = 2;
+
+
+
+-- Condition 3
+
+-- INSERT INTO `users_films` (`user_id`, `film_id`) value
+-- (3, 4);
+
+-- SELECT `uf`.`user_id`, `uf`.`film_id`, `u`.name AS user_name, `f`.name AS film_name
+-- FROM `users_films` AS `uf`
+-- JOIN `users` AS `u`
+-- ON `uf`.user_id = `u`.id
+-- JOIN `films` AS `f`
+-- ON `uf`.film_id = `f`.id
+-- WHERE `uf`.user_id = 3;
+
+
+
